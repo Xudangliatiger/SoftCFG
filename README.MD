@@ -1,5 +1,6 @@
 # SoftCFG: Uncertainty-Guided Stable Guidance for Visual Autoregressive Models
 
+![SoftCFG](assets/fig_1.png "SoftCFG")
 ## Overview
 
 SoftCFG is an open-source implementation of the uncertainty-guided inference method described in the paper *"SoftCFG: Uncertainty-Guided Stable Guidance for Visual Autoregressive Model"* ([arXiv:2510.00996](https://arxiv.org/abs/2510.00996)). This framework addresses key challenges in applying Classifier-Free Guidance (CFG) to autoregressive (AR) models for image generation, such as guidance diminishing and over-guidance. SoftCFG distributes adaptive perturbations across generated tokens based on their uncertainty, ensuring stable and persistent guidance while resolving conflicts between text conditions and visual coherence. It introduces Step Normalization to bound cumulative perturbations for long-sequence stability.
