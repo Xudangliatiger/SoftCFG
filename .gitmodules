@@ -1,6 +1,6 @@
 [submodule "alitok"]
 	path = alitok
-	url = https://github.com/ali-vilab/alitok.git
+	url = https://github.com/Xudangliatiger/alitok.git
 [submodule "1d-tokenizer"]
 	path = 1d-tokenizer
-	url = https://github.com/bytedance/1d-tokenizer.git
+	url = https://github.com/Xudangliatiger/1d-tokenizer.git
