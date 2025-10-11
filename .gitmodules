@@ -4,3 +4,6 @@
 [submodule "1d-tokenizer"]
 	path = 1d-tokenizer
 	url = https://github.com/Xudangliatiger/1d-tokenizer.git
+[submodule "Lumina-mGPT-2.0"]
+	path = Lumina-mGPT-2.0
+	url = https://github.com/Xudangliatiger/Lumina-mGPT-2.0.git
