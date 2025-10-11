@@ -90,6 +90,29 @@ python guided-diffusion/evaluations/evaluator.py \
 
 Generated images are saved as .png files in the output directory. For metrics, expect FID ~1.27 on AliTok-XL with SoftCFG.
 
+### SoftCFG with Lumina-mGPT-2.0
+
+SoftCFG also supports the Lumina-mGPT-2.0 autoregressive pipeline through the updated Jacobi sampler. After setting up the base project (see `Lumina-mGPT-2.0/README.md` for checkpoint and dependency details), you can enable SoftCFG with:
+
+```bash
+cd SoftCFG/Lumina-mGPT-2.0/lumina_mgpt &&\
+python generate_examples/generate.py \
+  --model_path path/to/ckpt \
+  --save_path outputs/softcfg_lumina/ \
+  --task t2i \
+  --cfg 9.0 \
+  --temperature 1.0 \
+  --top_k 2048 \
+  --speculative_jacobi \
+  --softcfg_strength 1.0 \
+  --softcfg_disable_step_norm false
+```
+
+Key flags:
+- `--softcfg_strength`: Set to `0` to disable SoftCFG or positive values to control perturbation strength (default `1.0`).
+- `--softcfg_disable_step_norm`: Add this flag to turn off Step Normalization; omit it (or pass `false`) to keep the default stabilization.
+
+The sampler writes images to `--save_path` and logs timings/FIDs using the same workflow as the original Lumina-mGPT release.
 
 ## Contributing
 
