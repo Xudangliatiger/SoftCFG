@@ -7,3 +7,6 @@
 [submodule "Lumina-mGPT-2.0"]
 	path = Lumina-mGPT-2.0
 	url = https://github.com/Xudangliatiger/Lumina-mGPT-2.0.git
+[submodule "RobusTok"]
+	path = RobusTok
+	url = https://github.com/Xudangliatiger/RobusTok.git
