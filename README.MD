@@ -114,6 +114,27 @@ Key flags:
 
 The sampler writes images to `--save_path` and logs timings/FIDs using the same workflow as the original Lumina-mGPT release.
 
+### SoftCFG with RobusTok
+
+RobusTok inherits the same RAR backbone as 1D-Tokenizer, so the SoftCFG hooks mirror that integration. After syncing the new `RobusTok` submodule, enable SoftCFG by setting the generator flags or passing them on the CLI:
+
+```bash
+cd SoftCFG/RobusTok &&\
+torchrun --nnodes=1 --nproc_per_node=8 sample_imagenet_rar.py \
+  config=configs/generator/rar.yaml \
+  experiment.output_dir="output/softcfg_robus" \
+  experiment.generator_checkpoint="weights/rar_b.pt" \
+  model.generator.guidance_scale=16.0 \
+  model.generator.guidance_scale_pow=2.75 \
+  model.generator.softcfg_strength=1 \
+  model.generator.step_norm=True
+```
+
+Notes:
+- `model.generator.softcfg_strength`: set to `0` to disable SoftCFG (default in config), positive values apply uncertainty-weighted KV scaling.
+- `model.generator.step_norm`: keeps step normalization on by default; set to `False` to match vanilla CFG behaviour.
+- The sampler and `demo_util.sample_fn(_with_tf)` automatically forward these options to `RAR.generate`.
+
 ## Contributing
 
 We welcome contributions! To contribute:
